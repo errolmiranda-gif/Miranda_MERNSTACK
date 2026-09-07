@@ -1,0 +1,37 @@
+[
+{
+    "name" : "Errol Miranda",
+    "age" : 20,
+    "section" : "3-1",
+    "student_no" : 202400153,
+    "course" : "BSIT"
+},
+{
+    "name" : "Ranehart",
+    "age" : 20,
+    "section" : "3-1",
+    "student_no" : 202400154,
+    "course" : "BSIT"
+},
+{
+    "name" : "Buboy",
+    "age" : 20,
+    "section" : "3-1",
+    "student_no" : 202400155,
+    "course" : "BSIT"
+},
+{
+    "name" : "Keybin",
+    "age" : 20,
+    "section" : "3-1",
+    "student_no" : 202400156,
+    "course" : "BSIT"
+},
+{
+    "name" : "Jerawrr",
+    "age" : 20,
+    "section" : "3-1",
+    "student_no" : 202400157,
+    "course" : "BSIT"
+}
+]
