@@ -1,18 +1,32 @@
-import Student from "./components/StudentComponent.jsx"
-import Subject from "./components/SubjectComponent.jsx"
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Navbar from "./components/navbar.jsx"
+import Home from "./pages/Home.jsx"
+import Student from "./components/Student.jsx"
+import StudentDetails from "./pages/StudentDetails.jsx"
 function App (){
 
 
   return(
 <div>
+<BrowserRouter>
+  <Navbar />
+  <Routes>
+    <Route path="/Home" element={<Home />} />
+    <Route path="/Students" element={<Student />} />
+    <Route path="/StudentDetails" element={<StudentDetails />} />
+  </Routes>
+</BrowserRouter>
 
 <Student name= "Errol" age={20} section={3-1} student_no={202400153} course="BSIT"/><hr></hr>
+<StudentDetails Sex="Male" Status="Active" Religion="Catholic" Address="Indang,Etivac"/><hr></hr>
 <Student name= "Ranehart" age={20} section={3-1} student_no={202404078} course="BSIT"/><hr></hr>
+<StudentDetails Sex="Male" Status="Active" Religion="Catholic" Address="Indang,Etivac"/><hr></hr>
 <Student name= "Buboy" age={20} section={3-1} student_no={202400152} course="BSIT"/><hr></hr>
+<StudentDetails Sex="Male" Status="Active" Religion="Catholic" Address="Indang,Etivac"/><hr></hr>
 <Student name= "Keybin" age={20} section={3-1} student_no={202404070} course="BSIT"/><hr></hr>
+<StudentDetails Sex="Male" Status="Active" Religion="Catholic" Address="Indang,Etivac"/><hr></hr>
 <Student name= "Jerawrr" age={20} section={3-1} student_no={202404080} course="BSIT"/><hr></hr>
-
-<Subject Schedulecode={202612827} Subjectcode="ITEC 80" Description="INTRODUCTION TO HUMAN COMPUTER INTERACTION" Type="ENGR" Units={3} Status="NOT GRADED"/><hr></hr>
+<StudentDetails Sex="Male" Status="Active" Religion="Catholic" Address="Indang,Etivac"/><hr></hr>
 
 
 </div>
@@ -20,3 +34,5 @@ function App (){
 }
 
 export default App;
+
+

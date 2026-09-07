@@ -1,5 +1,4 @@
-
-function StudentComponent({name,age,section,student_no,course}){
+function Student({name,age,section,student_no,course}){
  
  return(
 <div>
@@ -16,4 +15,4 @@ function StudentComponent({name,age,section,student_no,course}){
 </div>
   )
 }
-export default StudentComponent;
+export default Student;
