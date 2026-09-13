@@ -1,0 +1,63 @@
+[
+      {
+          "id": 1,
+              "name": "Errol",
+                  "age": 20,
+                      "section": "3-1",
+                          "student_no": 202400153,
+                              "course": "BSIT",
+                                  "sex": "Male",
+                                      "status": "Active",
+                                          "religion": "Catholic",
+                                              "address": "Indang, Cavite"
+                                                },
+                                                  {
+                                                      "id": 2,
+                                                          "name": "Ranehart",
+                                                              "age": 20,
+                                                                  "section": "3-1",
+                                                                      "student_no": 202404078,
+                                                                          "course": "BSIT",
+                                                                              "sex": "Male",
+                                                                                  "status": "Active",
+                                                                                      "religion": "Catholic",
+                                                                                          "address": "Indang, Cavite"
+                                                                                            },
+                                                                                              {
+                                                                                                  "id": 3,
+                                                                                                      "name": "Buboy",
+                                                                                                          "age": 20,
+                                                                                                              "section": "3-1",
+                                                                                                                  "student_no": 202400152,
+                                                                                                                      "course": "BSIT",
+                                                                                                                          "sex": "Male",
+                                                                                                                              "status": "Active",
+                                                                                                                                  "religion": "Catholic",
+                                                                                                                                      "address": "Indang, Cavite"
+                                                                                                                                        },
+                                                                                                                                          {
+                                                                                                                                              "id": 4,
+                                                                                                                                                  "name": "Keybin",
+                                                                                                                                                      "age": 20,
+                                                                                                                                                          "section": "3-1",
+                                                                                                                                                              "student_no": 202404070,
+                                                                                                                                                                  "course": "BSIT",
+                                                                                                                                                                      "sex": "Male",
+                                                                                                                                                                          "status": "Active",
+                                                                                                                                                                              "religion": "Catholic",
+                                                                                                                                                                                  "address": "Indang, Cavite"
+                                                                                                                                                                                    },
+                                                                                                                                                                                      {
+                                                                                                                                                                                          "id": 5,
+                                                                                                                                                                                              "name": "Jerawrr",
+                                                                                                                                                                                                  "age": 20,
+                                                                                                                                                                                                      "section": "3-1",
+                                                                                                                                                                                                          "student_no": 202404080,
+                                                                                                                                                                                                              "course": "BSIT",
+                                                                                                                                                                                                                  "sex": "Male",
+                                                                                                                                                                                                                      "status": "Active",
+                                                                                                                                                                                                                          "religion": "Catholic",
+                                                                                                                                                                                                                              "address": "Indang, Cavite"
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                ]
+]
