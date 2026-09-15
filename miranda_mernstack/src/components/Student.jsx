@@ -9,7 +9,7 @@ export default function Student({
   course
 }) {
   return (
-    <div>
+    <article className="student-card">
       <h2>{name}</h2>
 
       <p>Age: {age}</p>
@@ -22,6 +22,6 @@ export default function Student({
       </Link>
 
       <hr />
-    </div>
+    </article>
   );
 }

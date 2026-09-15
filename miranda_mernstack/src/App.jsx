@@ -4,80 +4,64 @@ import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
 import StudentDetails from "./pages/StudentDetails.jsx";
+import initialStudents from "./data/Students.json";
 
 export default function App() {
   const [counter, setCounter] = useState(0);
-  const [students, setStudents] = useState([]);
-  const [studentId, setStudentId] = useState(null);
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [section, setSection] = useState("");
-  const [studentNo, setStudentNo] = useState("");
-  const [course, setCourse] = useState("");
-  const [information, setInformation] = useState([]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newStudent ={
-      id: students.length + 1,
-      name,
-      age,
-      section,
-      student_no: studentNo,
-      course
-    }
-    setStudents([...students, newStudent]);
-    setid(null);
-    setName("");
-    setAge("");
-    setSection("");
-    setStudentNo("");
-    setCourse("");
+  const [students, setStudents] = useState(initialStudents);
+
+  const handleAddStudent = (studentDetails) => {
+    const newStudent = {
+      ...studentDetails,
+      id: Math.max(...students.map((student) => student.id), 0) + 1,
+    };
+
+    setStudents((currentStudents) => [
+      ...currentStudents,
+      newStudent,
+    ]);
+
+    return newStudent;
+  };
+
+  const handleUpdateStudent = (studentId, studentDetails) => {
+    setStudents((currentStudents) => currentStudents.map((student) => (
+      student.id === studentId ? { ...student, ...studentDetails } : student
+    )));
+  };
+
+  const handleDeleteStudent = (studentId) => {
+    setStudents((currentStudents) => currentStudents.filter((student) => student.id !== studentId));
   };
 
 
   return (
-    <>
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home counter={counter} onIncrement={() => setCounter(counter + 1)} />}
+        />
 
-        <Route path="/students" element={<Students />} />
+        <Route
+          path="/students"
+          element={<Students students={students} onAddStudent={handleAddStudent} />}
+        />
 
         <Route
           path="/students/:id"
-          element={<StudentDetails />}
+          element={
+            <StudentDetails
+              students={students}
+              onUpdateStudent={handleUpdateStudent}
+              onDeleteStudent={handleDeleteStudent}
+            />
+          }
         />
-         
-  
       </Routes>
     </BrowserRouter>
-    <div>
-      <h1>My App</h1>
-      <p>Counter: {counter}</p>
-
-      <button classname= "bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded" onClick={() => setCounter(counter + 1)}>+</button><br></br>
-
-      <input className = "border border-gray-300 p-2 rounded" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
-
-      <input className = "border border-gray-300 p-2 rounded" type="text" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} />
-
-      <button className = "bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded" onClick={handleSubmit}>Add Student</button>  
-      
-      {information.map((student) => (info,index) => (
-        <div className = "border border-gray-300 p-2 rounded" key= { index }>
-          <p>Name: {student.name}</p>
-          <p>Age: {student.age}</p>
-          <p>Section: {student.section}</p>
-          <p>Student No: {student.student_no}</p>
-          <p>Course: {student.course}</p>
-
-      
-     </div>
-      ))}
-    </div>
-    </>
   );
 }
 
