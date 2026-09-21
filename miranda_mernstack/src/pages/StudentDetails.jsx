@@ -49,6 +49,10 @@ export default function StudentDetails({ students, onUpdateStudent, onDeleteStud
             <main className="page-shell details-page">
                   <div className="profile-card">
                         <div className="profile-header">
+                              <section className="Teacher-list">
+                                      <h2>Teacher list ({teachers.length})</h2>
+                                      {teachers.map((teacher) => <TeacherCard key={teacher.id} {...teacher} />)}
+                                    </section>
                               <div className="profile-avatar">{student.name.charAt(0)}</div>
                               <div>
                                     <p className="profile-label">Student details</p>
@@ -80,6 +84,7 @@ export default function StudentDetails({ students, onUpdateStudent, onDeleteStud
                                           <button className="delete-button" type="button" onClick={handleDelete}>Delete student</button>
                                     </div>
                               </div>
+                              
                         </div>
                   )}
                   <Link to="/students">

@@ -5,6 +5,7 @@ a { color: #1769aa; text-decoration: none; }
 .nav-link { color: #fff; font-size: 15px; font-weight: bold; }
 .nav-link:hover { color: #f8d18f; }
 .page-shell { max-width: 900px; margin: 0 auto; padding: 42px 20px; }
+.teachers-page-shell { max-width: 900px; margin: 0 auto; padding: 42px 20px; }
 h1 { margin-top: 0; }
 .home-page { background: #fff; min-height: calc(100vh - 60px); }
 .counter-box { display: flex; align-items: center; gap: 14px; width: fit-content; margin-top: 25px; padding: 12px 14px; border: 1px solid #dce2e5; border-radius: 5px; background: #f8fafb; }
@@ -15,6 +16,9 @@ h1 { margin-top: 0; }
 .student-top-section { display: grid; grid-template-columns: minmax(0, 560px) minmax(220px, 1fr); gap: 20px; align-items: start; margin: 25px 0 40px; }
 .student-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0; padding: 20px; border: 1px solid #dce2e5; border-radius: 5px; background: #fff; }
 .student-form h2 { grid-column: 1 / -1; margin: 0 0 5px; font-size: 20px; }
+.Teachers-top-section { display: grid; grid-template-columns: minmax(0, 560px) minmax(220px, 1fr); gap: 20px; align-items: start; margin: 25px 0 40px; }
+.Teachers-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0; padding: 20px; border: 1px solid #dce2e5; border-radius: 5px; background: #fff; }
+.Teachers-form h2 { grid-column: 1 / -1; margin: 0 0 5px; font-size: 20px; }
 input { width: 100%; padding: 10px; border: 1px solid #cbd4d9; border-radius: 4px; }
 input:focus { border-color: #1769aa; outline: 2px solid #dcecf7; }
 .primary-button { display: inline-block; padding: 10px 16px; background: #287aa8; }
@@ -24,10 +28,17 @@ input:focus { border-color: #1769aa; outline: 2px solid #dcecf7; }
 .student-card h2 { margin: 0 0 8px; font-size: 19px; }
 .student-card p { margin: 5px 0; color: #5f6b72; }
 .student-card hr { display: none; }
+.Teachers-list h2 { font-size: 20px; }
+.Teachers-card { margin: 12px 0; padding: 16px; border: 1px solid #dce2e5; border-left: 4px solid #62a3c9; border-radius: 5px; background: #fff; }
+.Teachers-card h2 { margin: 0 0 8px; font-size: 19px; }
+.Teachers-card p { margin: 5px 0; color: #5f6b72; }
+.Teachers-card hr { display: none; }
 .recent-panel { min-height: 245px; padding: 20px; border: 1px solid #f0d6af; border-radius: 5px; background: #fffaf3; }
 .recent-panel h2 { margin: 0 0 18px; color: #995c1d; font-size: 20px; }
 .recent-panel .student-card { margin: 0; border-color: #f0d6af; border-left-color: #e58b35; }
+.teachers-recent-panel .Teachers-card { margin: 0; border-color: #f0d6af; border-left-color: #e58b35; }
 .recent-empty { color: #8b7761; font-size: 14px; line-height: 1.5; }
+.teachers-recent-empty { color: #8b7761; font-size: 14px; line-height: 1.5; }
 .details-page { max-width: 760px; }
 .profile-card { overflow: hidden; margin-bottom: 24px; border: 1px solid #d6e1e7; border-radius: 8px; background: #fff; box-shadow: 0 3px 10px rgba(43, 73, 89, .08); }
 .profile-header { display: flex; align-items: center; gap: 16px; padding: 24px; color: #fff; background: #287aa8; }

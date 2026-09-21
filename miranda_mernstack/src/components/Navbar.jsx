@@ -4,8 +4,9 @@ export default function Navbar() {
       return (
             <nav className="navbar">
                   <Link className="nav-link" to="/">Home</Link>
-                
                   <Link className="nav-link" to="/students">Students</Link>
+                  <Link className="nav-link" to="/teachers">Teachers</Link>
+                  <Link className="nav-link" to="/teacherdetails">Teachers List</Link>
             </nav>
       );
 }
