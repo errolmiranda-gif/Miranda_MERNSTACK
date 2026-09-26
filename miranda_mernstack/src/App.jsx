@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
 import StudentDetails from "./pages/StudentDetails.jsx";
 import Teachers from "./pages/Teachers.jsx";
+import TeachersList from "./pages/TeachersList.jsx";
 import TeacherDetails from "./pages/TeacherDetails.jsx";
 import initialStudents from "./data/Students.json";
 import initialTeachers from "./data/Teachers.json";
@@ -90,7 +91,7 @@ export default function App() {
 
         <Route
           path="/teachers"
-          element={<Teachers teachers={teachers} onAddTeacher={handleAddTeacher} />}
+          element={<Teachers onAddTeacher={handleAddTeacher} />}
         />
 
         <Route
@@ -105,8 +106,8 @@ export default function App() {
         />
 
         <Route
-          path="/teacherdetails"
-          element={<Teachers teachers={teachers} onAddTeacher={handleAddTeacher} />}
+          path="/teacherslist"
+          element={<TeachersList teachers={teachers} />}
         />
 
         <Route
@@ -123,4 +124,9 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+
+
+
+
 
