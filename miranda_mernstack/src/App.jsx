@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
@@ -14,6 +14,30 @@ export default function App() {
   const [counter, setCounter] = useState(0);
   const [students, setStudents] = useState(initialStudents);
   const [teachers, setTeachers] = useState(initialTeachers);
+
+ useEffect(() => {
+
+    fetch("http://localhost:5000/api/message")
+        .then((response) => response.json())
+        .then(data => {
+            console.log(data)
+        });
+    },[]);
+
+    app.get("/api/students", async (req, res) => {
+      const students = await Student.find();
+      res.json(students);
+    })
+
+    const [students, setStudents] = useState([]);
+    useEffect(() => {
+      fetch("http://localhost:5000/api/students")
+       .then(response => response.json())
+       .then(data => {
+        setStudents(data);
+
+       });
+    }, []);
 
   const handleAddStudent = (studentDetails) => {
     const newStudent = {
@@ -62,8 +86,11 @@ export default function App() {
       currentTeachers.filter((teacher) => teacher.id !== teacherId)
     );
   };
-
+   
+ 
   return (
+
+    
     <BrowserRouter>
       <Navbar />
 
@@ -122,7 +149,10 @@ export default function App() {
         />
       </Routes>
     </BrowserRouter>
+    
   );
+   
+ 
 }
 
 

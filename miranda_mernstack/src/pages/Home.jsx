@@ -10,4 +10,7 @@ export default function Home({ counter, onIncrement }) {
                   </div>
             </main>
       );
+
+      
+
 }
