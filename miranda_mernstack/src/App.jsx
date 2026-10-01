@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect,useState } from "react";
+﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
@@ -15,36 +15,33 @@ export default function App() {
   const [students, setStudents] = useState(initialStudents);
   const [teachers, setTeachers] = useState(initialTeachers);
 
- useEffect(() => {
-
+  useEffect(() => {
     fetch("http://localhost:5000/api/message")
-        .then((response) => response.json())
-        .then(data => {
-            console.log(data)
-        });
-    },[]);
+      .then((response) => {
+        if (!response.ok) throw new Error("Message API request failed");
+        return response.json();
+      })
+      .then((data) => console.log(data.message))
+      .catch((error) => console.error("Backend connection:", error));
 
-    app.get("/api/students", async (req, res) => {
-      const students = await Student.find();
-      res.json(students);
-    })
-
-    const [students, setStudents] = useState([]);
-    useEffect(() => {
-      fetch("http://localhost:5000/api/students")
-       .then(response => response.json())
-       .then(data => {
-        setStudents(data);
-
-       });
-    }, []);
+    fetch("http://localhost:5000/api/students")
+      .then((response) => {
+        if (!response.ok) throw new Error("Students API request failed");
+        return response.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data)) setStudents(data);
+      })
+      .catch((error) => {
+        console.error("Could not load students from the backend; showing local data instead.", error);
+      });
+  }, []);
 
   const handleAddStudent = (studentDetails) => {
     const newStudent = {
       ...studentDetails,
-      id: Math.max(...students.map((student) => student.id), 0) + 1,
+      id: Math.max(...students.map((student) => Number(student.id) || 0), 0) + 1,
     };
-
     setStudents((currentStudents) => [...currentStudents, newStudent]);
     return newStudent;
   };
@@ -66,17 +63,16 @@ export default function App() {
   const handleAddTeacher = (teacherDetails) => {
     const newTeacher = {
       ...teacherDetails,
-      id: Math.max(...teachers.map((teacher) => teacher.id), 0) + 1,
+      id: Math.max(...teachers.map((teacher) => Number(teacher.id) || 0), 0) + 1,
     };
-
     setTeachers((currentTeachers) => [...currentTeachers, newTeacher]);
     return newTeacher;
   };
 
-  const handleUpdateTeacher = (teachersId, teacherDetails) => {
+  const handleUpdateTeacher = (teacherId, teacherDetails) => {
     setTeachers((currentTeachers) =>
       currentTeachers.map((teacher) =>
-        teacher.id === teachersId ? { ...teacher, ...teacherDetails } : teacher
+        teacher.id === teacherId ? { ...teacher, ...teacherDetails } : teacher
       )
     );
   };
@@ -86,25 +82,19 @@ export default function App() {
       currentTeachers.filter((teacher) => teacher.id !== teacherId)
     );
   };
-   
- 
-  return (
 
-    
+  return (
     <BrowserRouter>
       <Navbar />
-
       <Routes>
         <Route
           path="/"
           element={<Home counter={counter} onIncrement={() => setCounter(counter + 1)} />}
         />
-
         <Route
           path="/students"
           element={<Students students={students} onAddStudent={handleAddStudent} />}
         />
-
         <Route
           path="/students/:id"
           element={
@@ -115,12 +105,7 @@ export default function App() {
             />
           }
         />
-
-        <Route
-          path="/teachers"
-          element={<Teachers onAddTeacher={handleAddTeacher} />}
-        />
-
+        <Route path="/teachers" element={<Teachers onAddTeacher={handleAddTeacher} />} />
         <Route
           path="/teachers/:id"
           element={
@@ -131,12 +116,7 @@ export default function App() {
             />
           }
         />
-
-        <Route
-          path="/teacherslist"
-          element={<TeachersList teachers={teachers} />}
-        />
-
+        <Route path="/teacherslist" element={<TeachersList teachers={teachers} />} />
         <Route
           path="/teacherdetails/:id"
           element={
@@ -149,14 +129,5 @@ export default function App() {
         />
       </Routes>
     </BrowserRouter>
-    
   );
-   
- 
 }
-
-
-
-
-
-
